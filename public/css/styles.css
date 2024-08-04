@@ -1,0 +1,87 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; 
+    color: white; /* Dark text color for contrast */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+.main-content {
+    padding: 20px; /* Add padding to the main content */
+}
+
+h2 {
+    margin-top: 20px; /* Add margin to headings */
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif; /* Use a sans-serif font for paragraphs */
+    line-height: 1.6; /* Increase line height for better readability */
+}
+
+a {
+    color: rgb(216, 34, 91); /* Replace #yourColor with the desired color code */
+}
+
+a:hover {
+    color: rgb(207, 107, 138); /* Optional: Change color on hover */
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    background-color: #121212; /* Dark background for sidebar */
+    color: black; 
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: rgb(216, 34, 91); /* Replace #yourColor with the desired color code */
+}
+
+.sidebar .nav-link:hover {
+    color: lightgray; /* Optional: Change color on hover */
+}
+
+.profile-picture {
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* .sidebar .nav-link {
+    color: #ffffff;
+} */
+
+.sidebar .nav-link.active {
+    font-weight: bold;
+}
+
+.date {
+    font-weight: bold;
+}
+
+ .main-content {
+    margin-left: 250px; 
+    padding: 20px;
+} 
+
+.blog-post {
+    margin-bottom: 20px;
+}
+
+.blog-title {
+    color: rgb(216, 34, 91);
+}
+
+.btn {
+    background-color: #D8345B; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+}
