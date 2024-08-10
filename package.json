@@ -1,6 +1,6 @@
 {
   "name": "ElosBlog",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@4.4.0",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "ejs": "^3.1.10",
@@ -9,5 +9,8 @@
   },
   "scripts": {
     "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": "18.19.0"
   }
 }
