@@ -41,14 +41,14 @@ const blogs = [
     category: 'Think Pieces',
     type: 'external'
   },
-  // {
-  //   url: '/writings/opportunties-in-web3-residencies',
-  //   title: "Opportunties in Web3 Residencies",
-  //   date: '2024-07-28',
-  //   excerpt: '',
-  //   category: 'Think Pieces',
-  //   type: 'internal'
-  // }
+  {
+    url: './writings/The-Global-Majority',
+    title: "The Global Majority",
+    date: '2024-11-22',
+    excerpt: 'Reframing the world\'s 85% population from "minorities" to their true identity as the Global Majority, and how Ethereum can empower this transformation.',
+    category: 'Think Pieces',
+    type: 'internal'
+  }
 
 ];
 

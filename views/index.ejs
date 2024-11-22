@@ -77,7 +77,10 @@
                       <%= blog.title %>
                     </a>
                   </h4>
-                  <p><small class="date"><%= blog.formattedDate %></small> <%= blog.excerpt %></p>
+                  <p>
+                    <small class="date"><%= blog.formattedDate %></small> - 
+                    <span class="excerpt"><%= blog.excerpt %></span>
+                  </p>
                 </li>
               <% }); %>
             </ul>
