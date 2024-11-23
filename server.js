@@ -1,57 +1,12 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
-
-
-
+// Load blog data from JSON file
+const blogData = require('./data/blogs.json');
+const blogs = blogData.blogs;
 
 app.use(express.static('public'));
-
-// Sample blog data
-const blogs = [
-  {
-    url: 'https://prove.email/blog/recovery',
-    title: 'Email-Based Account Recovery using ZK Email and Rhinestone',
-    date: '2024-06-26',
-    excerpt: 'This blog post explains the importance of zk email-based account recovery modules, and how to use it for any smart contract in collaboration with Rhinestone.',
-    category: 'Cryptography',
-    type: 'external'
-  },
-  {
-    url: 'https://prove.email/blog/ethDenverNFT',
-    title: 'Send and Receive NFTs using Email wallet',
-    date: '2024-02-20',
-    excerpt: "Use this guide to claim your EthDenver NFT using Email Wallet, learn how to send any NFT via emails, and integrate your own email-based NFTs into your app.",
-    category: 'Cryptography',
-    type: 'external'
-  },
-  {
-    url: 'https://prove.email/blog/twitter',
-    title: 'Building Proof of Twitter using ZK Email',
-    date: '2024-01-15',
-    excerpt: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries.",
-    category: 'Cryptography',
-    type: 'external'
-  },
-  {
-    url: 'https://medium.com/@metachaser/why-cant-i-buy-gum-with-crypto-15182623254a',
-    title: "Why Can't I Buy Gum With Crypto",
-    date: '2023-10-26',
-    excerpt: 'An in-depth look at the obstacles preventing crypto from being used for everyday transactions',
-    category: 'Think Pieces',
-    type: 'external'
-  },
-  {
-    url: './writings/The-Global-Majority',
-    title: "The Global Majority",
-    date: '2024-11-22',
-    excerpt: 'Reframing the world\'s 85% population from "minorities" to their true identity as the Global Majority, and how Ethereum can empower this transformation.',
-    category: 'Think Pieces',
-    type: 'internal'
-  }
-
-];
-
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -72,19 +27,34 @@ app.get('/blog', (req, res) => {
 
 // Dynamic route for individual blog posts
 app.get('/writings/:title', (req, res) => {
-  const blogTitle = req.params.title; // Keep the title as is
-  console.log(`Looking for blog title: ${blogTitle}`); // Debug log
-
-  // Log all blog titles for debugging
-  blogs.forEach(b => console.log(`Available blog title: ${b.title}`));
-
-  const blog = blogs.find(b => b.title.toLowerCase().replace(/ /g, '-') === blogTitle.toLowerCase());
+  const blogTitle = req.params.title;
+  const blog = blogs.find(b => {
+    // For internal blog posts
+    if (b.type === 'internal') {
+      return b.url === `/writings/${blogTitle}`;
+    }
+    // For external blog posts
+    return false;
+  });
 
   if (blog) {
-    console.log(`Found blog: ${blog.title}`); // Debug log
-    res.render(`blogs/${blog.title.toLowerCase().replace(/ /g, '-')}`, { title: blog.title, blog });
+    if (blog.type === 'internal') {
+      res.render(`blogs/${blogTitle}`, { 
+        title: blog.title,
+        blog: {
+          ...blog,
+          formattedDate: new Date(blog.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+        }
+      });
+    } else {
+      // Redirect to external URL for external blog posts
+      res.redirect(blog.url);
+    }
   } else {
-    console.log('Blog post not found'); // Debug log
     res.status(404).send('Blog post not found');
   }
 });

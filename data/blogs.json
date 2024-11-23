@@ -1,0 +1,45 @@
+{
+    "blogs": [
+      {
+        "url": "https://prove.email/blog/recovery",
+        "title": "Email-Based Account Recovery using ZK Email and Rhinestone",
+        "date": "2024-06-26",
+        "excerpt": "This blog post explains the importance of zk email-based account recovery modules, and how to use it for any smart contract in collaboration with Rhinestone.",
+        "category": "Cryptography",
+        "type": "external"
+      },
+      {
+        "url": "https://prove.email/blog/ethDenverNFT",
+        "title": "Send and Receive NFTs using Email wallet",
+        "date": "2024-02-20",
+        "excerpt": "Use this guide to claim your EthDenver NFT using Email Wallet, learn how to send any NFT via emails, and integrate your own email-based NFTs into your app.",
+        "category": "Cryptography",
+        "type": "external"
+      },
+      {
+        "url": "https://prove.email/blog/twitter",
+        "title": "Building Proof of Twitter using ZK Email",
+        "date": "2024-01-15",
+        "excerpt": "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries.",
+        "category": "Cryptography",
+        "type": "external"
+      },
+      {
+        "url": "https://medium.com/@metachaser/why-cant-i-buy-gum-with-crypto-15182623254a",
+        "title": "Why Can't I Buy Gum With Crypto",
+        "date": "2023-10-26",
+        "excerpt": "An in-depth look at the obstacles preventing crypto from being used for everyday transactions",
+        "category": "Think Pieces",
+        "type": "external"
+      },
+      {
+        "url": "/writings/The-Global-Majority",
+        "title": "The Global Majority",
+        "date": "2024-11-22",
+        "excerpt": "Reframing the world's 85% population from \"minorities\" to their true identity as the Global Majority...",
+        "category": "Think Pieces",
+        "type": "internal",
+        "content": "views/blogs/The-Global-Majority.ejs"
+      }
+    ]
+  }
