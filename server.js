@@ -42,7 +42,7 @@ const blogs = [
     type: 'external'
   },
   {
-    url: './writings/The-Global-Majority',
+    url: './writings/the-global-majority',
     title: "The Global Majority",
     date: '2024-11-22',
     excerpt: 'Reframing the world\'s 85% population from "minorities" to their true identity as the Global Majority, and how Ethereum can empower this transformation.',
