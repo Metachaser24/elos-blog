@@ -72,19 +72,22 @@ app.get('/blog', (req, res) => {
 
 // Dynamic route for individual blog posts
 app.get('/writings/:title', (req, res) => {
-  const blogTitle = req.params.title; // Keep the title as is
-  console.log(`Looking for blog title: ${blogTitle}`); // Debug log
+  const blogTitle = req.params.title; // Don't lowercase this
+  console.log(`Looking for blog title: ${blogTitle}`);
 
-  // Log all blog titles for debugging
-  blogs.forEach(b => console.log(`Available blog title: ${b.title}`));
-
-  const blog = blogs.find(b => b.title.toLowerCase().replace(/ /g, '-') === blogTitle.toLowerCase());
+  const blog = blogs.find(b => {
+    // Match the URL format from your blogs array
+    const urlPath = b.url.split('/').pop();
+    return urlPath.toLowerCase() === blogTitle.toLowerCase();
+  });
 
   if (blog) {
-    console.log(`Found blog: ${blog.title}`); // Debug log
-    res.render(`blogs/${blog.title.toLowerCase().replace(/ /g, '-')}`, { title: blog.title, blog });
+    // Use the exact filename case as it exists on the server
+    const viewPath = 'blogs/The-Global-Majority'; // Match the exact filename
+    console.log(`Attempting to render view: ${viewPath}`);
+    res.render(viewPath, { title: blog.title, blog });
   } else {
-    console.log('Blog post not found'); // Debug log
+    console.log('Blog post not found');
     res.status(404).send('Blog post not found');
   }
 });
