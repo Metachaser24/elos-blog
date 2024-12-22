@@ -51,7 +51,7 @@ const blogs = [
   },
   {
     url: './writings/beyond-the-code',
-    title: "Beyond the Code: Creating Trust in Zero Knowledge Systems",
+    title: "Beyond the Code: Building Trust in Zero Knowledge Systems",
     date: '2024-12-21',
     excerpt: 'Exploring how a decentralized network of developers can bridge the gap between complex ZK protocols and non-technical users through collaborative validation and consensus.',
     category: 'Cryptography',
