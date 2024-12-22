@@ -48,6 +48,14 @@ const blogs = [
     excerpt: 'Reframing the world\'s 85% population from "minorities" to their true identity as the Global Majority, and how Ethereum can empower this transformation.',
     category: 'Think Pieces',
     type: 'internal'
+  },
+  {
+    url: './writings/beyond-the-code',
+    title: "Beyond the Code: Creating Trust in Zero Knowledge Systems",
+    date: '2024-12-21',
+    excerpt: 'Exploring how a decentralized network of developers can bridge the gap between complex ZK protocols and non-technical users through collaborative validation and consensus.',
+    category: 'Cryptography',
+    type: 'internal'
   }
 
 ];
@@ -72,18 +80,17 @@ app.get('/blog', (req, res) => {
 
 // Dynamic route for individual blog posts
 app.get('/writings/:title', (req, res) => {
-  const blogTitle = req.params.title; // Don't lowercase this
+  const blogTitle = req.params.title;
   console.log(`Looking for blog title: ${blogTitle}`);
 
   const blog = blogs.find(b => {
-    // Match the URL format from your blogs array
     const urlPath = b.url.split('/').pop();
     return urlPath.toLowerCase() === blogTitle.toLowerCase();
   });
 
   if (blog) {
-    // Use the exact filename case as it exists on the server
-    const viewPath = 'blogs/The-Global-Majority'; // Match the exact filename
+    // Convert the blog title to a view path format
+    const viewPath = `blogs/${blogTitle}`;
     console.log(`Attempting to render view: ${viewPath}`);
     res.render(viewPath, { title: blog.title, blog });
   } else {
