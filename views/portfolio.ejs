@@ -20,10 +20,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/blog">Blogs</a>
+              <a class="nav-link" href="/blog">Blogs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/portfolio">Portfolio</a>
+              <a class="nav-link active" href="/portfolio">Portfolio</a>
             </li>
             <!-- Social Media Links -->
             <li class="nav-item">
@@ -39,19 +39,29 @@
         </div>
       </nav>
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
-        <h1>All Blog Posts</h1>
+        <div class="portfolio-header">
+          <h1>Portfolio</h1>
+          <p class="portfolio-subtitle">A collection of products I've built, from AI agents and verification infrastructure to onchain tools and consumer brands.</p>
+        </div>
+
         <section>
-          <ul class="list-unstyled">
-            <% blogs.forEach(function(blog) { %>
-              <li class="blog-card">
-                <span class="category-badge"><%= blog.category %></span>
-                <h3>
-                  <a href="<%= blog.url %>" target="<%= blog.type === 'external' ? '_blank' : '_self' %>">
-                    <%= blog.title %>
-                  </a>
-                </h3>
-                <small class="date"><%= blog.date %></small>
-                <p><%= blog.excerpt %></p>
+          <ul class="list-unstyled portfolio-grid">
+            <% projects.forEach(function(project) { %>
+              <li class="project-card">
+                <div class="project-card-header">
+                  <h3 class="project-name"><%= project.name %></h3>
+                  <span class="project-status status-<%= project.status.toLowerCase().split(' ')[0] %>"><%= project.status %></span>
+                </div>
+                <p class="project-tagline"><%= project.tagline %></p>
+                <p class="project-description"><%= project.description %></p>
+                <div class="project-tags">
+                  <% project.tags.forEach(function(tag) { %>
+                    <span class="project-tag"><%= tag %></span>
+                  <% }); %>
+                </div>
+                <% if (project.url) { %>
+                  <a class="project-link" href="<%= project.url %>" target="_blank" rel="noopener">Visit site →</a>
+                <% } %>
               </li>
             <% }); %>
           </ul>

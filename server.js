@@ -60,6 +60,49 @@ const blogs = [
 
 ];
 
+const projects = [
+  {
+    name: 'Canopi',
+    tagline: 'AI lead gen & outreach assistant for small business owners',
+    description: 'An AI-powered assistant that helps small business owners discover qualified leads and run personalized outreach at scale, so founders can stay focused on building and serving customers.',
+    tags: ['AI', 'Lead Gen', 'SMB'],
+    status: 'Live',
+    url: 'https://getcanopi.ai'
+  },
+  {
+    name: 'Cr3dentials',
+    tagline: 'Verification infrastructure for financial institutions',
+    description: 'Helps lenders verify the identity and income of alternative earners like gig workers, freelancers, and merchants using real-time data pulled directly from platform dashboards.',
+    tags: ['Fintech', 'Identity', 'Verification'],
+    status: 'Active',
+    url: 'https://www.cr3dentials.xyz'
+  },
+  {
+    name: 'Church Onchain',
+    tagline: 'Decentralized donations & treasury management for churches',
+    description: 'Infrastructure that lets churches handle donations and treasury management through a transparent decentralized autonomous organization, giving congregations visibility into how funds are stewarded.',
+    tags: ['Crypto', 'DAO', 'Treasury'],
+    status: 'Archived',
+    url: ''
+  },
+  {
+    name: 'Caracal',
+    tagline: 'Ecommerce for high heel dance shoes',
+    description: 'A boutique ecommerce experience designed for dancers, focused on high heel dance shoes with a storefront tailored to the community it serves.',
+    tags: ['Ecommerce', 'Brand'],
+    status: 'Live',
+    url: 'https://caracal.world'
+  },
+  {
+    name: 'CourtIQ',
+    tagline: 'AI sports betting agent for basketball & baseball parlays',
+    description: 'An AI agent built in 2024 that analyzes matchups and player data to help bettors make sharper picks for parlays and props across basketball and baseball.',
+    tags: ['AI', 'Sports', 'Agents'],
+    status: 'Archived · 2024',
+    url: ''
+  }
+];
+
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -76,6 +119,10 @@ app.get('/', (req, res) => {
 
 app.get('/blog', (req, res) => {
   res.render('blog', { title: 'Blog', blogs });
+});
+
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio', { title: 'Portfolio', projects });
 });
 
 // Dynamic route for individual blog posts
